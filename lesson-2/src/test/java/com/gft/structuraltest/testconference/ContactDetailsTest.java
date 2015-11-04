@@ -15,7 +15,30 @@ public class ContactDetailsTest {
     @Test
     @Parameters({
             "jacek@wp.pl,false",
-            "jacek,true"
+            ",false",
+            "aaaaaaaaaaaaaaaaaaaaa,false",
+            "@,false",
+            "[,false",
+            "`,false",
+            "},false",
+            "SELECT*,false",
+            "1, false",
+            "*,false",
+            ".+,false",
+            "?,false",
+            "\n,false",
+            "\\n,false",
+            " ,false",
+            "<script/>,false",
+            
+            "jacek,true",
+            "aaaaaaaaaaaaaaaaaaaa,true",
+            "a,true",
+            "ZółśćńźąężŁÓŚĆŃĄĘŻŹ,true",
+            "Aa,true"
+            
+            
+            
     })
     public void shouldReturnTrueIfFirstNameIsValid(String firstName, boolean result)  {
         assertEquals(ContactDetails.validateFirstName(firstName), result);
