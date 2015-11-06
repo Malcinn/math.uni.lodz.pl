@@ -3,3 +3,6 @@
 #
 
 username: a, zAZZółśćńźąężŁÓŚĆŃĄ, aĘŻŹbBcCdDeEfFgGhHiI, ~ĘŻŹbBcCdDeEfFgGhHiIja, ~EMPTY, ~@, ~[, ~`, ~{ 
+phone: ~+0 12345, ~+0122 12345, +012 012345678911111, ~+012 012345678911111, ~+ 01234567891111, ~0123456789000000, ~0, ~EMPTY, ~[a-zA-Z]
+email: a@a, aa@a , characters = 254, characters = 253, ~characters > 254, ~characters < 3, ~EMPTY, ~.a@, ~a.@, ~a..a@, ~@.192.168.0.1, ~@192.168.0.1., ~@192..168.0.1, ~ @a, ~@  
+
