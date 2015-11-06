@@ -1,9 +1,9 @@
 INDEX VERSION 1.127+/home/marcin/Desktop/Studia/Podstawy testowania oprogramowania/ćwiczenia/math.uni.lodz.pl/.metadata/.plugins/org.eclipse.jdt.core
 1829049118.index
-532570122.index
+3686295119.index
 1488566013.index
-392775124.index
 3874705282.index
+392775124.index
 3542660237.index
 2855231919.index
 902718715.index
@@ -18,12 +18,11 @@ INDEX VERSION 1.127+/home/marcin/Desktop/Studia/Podstawy testowania oprogramowan
 1832344276.index
 2090805638.index
 1259291233.index
-2259717368.index
 3938652823.index
+2130860445.index
 3900037835.index
 1513993030.index
 3319877003.index
-2130860445.index
 1311494821.index
 3445035634.index
 2962673418.index
@@ -35,5 +34,5 @@ INDEX VERSION 1.127+/home/marcin/Desktop/Studia/Podstawy testowania oprogramowan
 2276187579.index
 664741535.index
 104905196.index
+532570122.index
 1047328036.index
-3686295119.index
