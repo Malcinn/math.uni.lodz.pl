@@ -31,3 +31,7 @@ hs_err_pid*
 **/.settings
 **/.classpath
 **/.project
+
+#lesson-6
+lesson-6/rcapp/
+

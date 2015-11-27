@@ -1,0 +1,10 @@
+slajd 8 
+
+//button[@class='gwt-Button' and text()='Java' or text()='SQL' or text()='.NET']
+
+//div/span/label
+
+
+site about selenium tests and selenium IDE
+
+http://selenium-by-arun.blogspot.in/2012/11/14-record-and-playback-using-selenium.html
