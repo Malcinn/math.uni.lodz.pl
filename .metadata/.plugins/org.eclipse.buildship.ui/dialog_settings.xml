@@ -3,4 +3,9 @@
 	<section name="org.eclipse.buildship.ui.wizard.project.import">
 		<item value="/home/marcin/Desktop/Studia/Podstawy testowania oprogramowania/ćwiczenia/math.uni.lodz.pl/lesson-8" key="project_location"/>
 	</section>
+	<section name="org.eclipse.buildship.ui.wizard.project.creation">
+		<item value="/home/marcin/Desktop/Studia/Podstawy testowania oprogramowania/ćwiczenia/math.uni.lodz.pl/lesson-8/lesson-8" key="project_location"/>
+		<item value="/home/marcin/Desktop/Studia/Podstawy testowania oprogramowania/ćwiczenia/math.uni.lodz.pl/lesson-8" key="custom_location"/>
+		<item value="false" key="use_default_location"/>
+	</section>
 </section>
