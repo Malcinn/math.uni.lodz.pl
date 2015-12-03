@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?><testrun name="SimpleTest" project="lesson-8" tests="3" started="3" failures="0" errors="0" ignored="0">
+  <testsuite name="SimpleTest" time="26.013">
+    <testcase name="shouldShowWrongAnswerPopupWhenAsnwerIsIncorrect" classname="SimpleTest" time="8.64"/>
+    <testcase name="shouldNotifyUserWhenEmailAddressesAreDifferent" classname="SimpleTest" time="8.495"/>
+    <testcase name="shouldShowCorrectAnswerPopupWhenAnswerIsCorrect" classname="SimpleTest" time="8.878"/>
+  </testsuite>
+</testrun>

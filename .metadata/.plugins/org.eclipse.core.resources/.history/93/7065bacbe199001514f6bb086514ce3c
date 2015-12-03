@@ -1,0 +1,147 @@
+/**
+ * Created by Jacek on 2015-08-01.
+ */
+
+import org.junit.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.firefox.FirefoxDriver;
+
+import java.util.Random;
+import java.util.concurrent.TimeUnit;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import static org.junit.Assert.*;
+
+public class SimpleTest {
+	
+	private static final String URL = "http://localhost:8080/registrationform/";
+    private static WebDriver driver;
+    private boolean acceptNextAlert = true;
+    private Random generator;
+    
+    {//initalize block
+    	this.generator = new Random();
+    }
+
+    @Before
+    public  void openBrowser(){
+        driver = new FirefoxDriver();
+        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+    }
+
+    @Test
+    public  void shouldShowWrongAnswerPopupWhenAsnwerIsIncorrect(){
+
+        driver.get(URL);
+        String title = driver.getTitle();
+        assertEquals("Rule Financial Registration Form", title);
+
+        /*
+         * Your code needs to be here, sample below should help you a bit
+         * driver.findElement(By.name("firstName")).clear();
+         * driver.findElement(By.name("firstName")).sendKeys("Marek");
+         */
+        
+        this.fillRegistrationFields();
+        driver.findElement(By.xpath("//*[@class='gwt-Button' and text()='Java']")).click();
+        if (this.chooseTypeOfAnswerForQuestion(false)){
+        	
+        }else{
+        	
+        }
+        driver.findElement(By.xpath("//*[@id='gwt-uid-26']")).click(); //checkBox on the site
+        // Save button             | //*[text()='Save']
+        driver.findElement(By.xpath("html/body/div[2]/div[2]/div/div/div/table/tbody/tr/td[1]/button")).click(); 
+        assertEquals("WoW Blad taki powazny Problemow tak wiele. Tester sprytny bardzo Uszanowanko wyjatek WoWcould not execute statement", closeAlertAndGetItsText());
+
+    }
+    
+    private void fillRegistrationFields(){
+        int randomIntNUmberForRegistration = this.generator.nextInt(100000);
+        
+        driver.findElement(By.name("firstName")).clear();
+        driver.findElement(By.name("firstName")).sendKeys("Marcin"+randomIntNUmberForRegistration);
+        driver.findElement(By.name("lastName")).clear();
+        driver.findElement(By.name("lastName")).sendKeys("Kowalczyk"+randomIntNUmberForRegistration);
+        
+        String email = new String ("marcin"+randomIntNUmberForRegistration+"@gmail.com");
+        driver.findElement(By.name("email")).clear();
+        driver.findElement(By.name("email")).sendKeys(email);
+        driver.findElement(By.name("repeatEmail")).clear();
+        driver.findElement(By.name("repeatEmail")).sendKeys(email);
+    }
+    
+    private boolean chooseTypeOfAnswerForQuestion(boolean typeOfAnswer){
+    	boolean answerPicked = false;
+    	
+    	String[] questions = {"String ruleString = \"RuleFinancial\";\nint start = 0;\nchar end = 4;\nSystem.out.print(\"Go \"+ (end + start) + \" \");\nSystem.out.println(ruleString.substring(start, end));",
+		"int[] intArray = { 1, 0, -1 };\nfor (int i : intArray)\n    if (i <= 0)\n        i = i - 1;\nSystem.out.println(intArray[0] + intArray[1] + intArray[2]);"};
+
+    	Map questionsAnswersMap = new HashMap<Object, Object>(); // key - question, value - correct answer
+    	questionsAnswersMap.put(new String(questions[0]),new String("Go 4 RuleF"));
+    	questionsAnswersMap.put(new String(questions[1]),new String("-2"));
+
+    	String questionText = driver.findElement(By.xpath("//div[@class='GOFRIDJCOI']/code")).getText();
+    	String correctAnswer = (String) questionsAnswersMap.get(questionText);
+        List<WebElement> listOfAnswersInput = driver.findElements(By.name("answers"));
+        List<WebElement> listOfLabels = driver.findElements(By.xpath("//table[@class='GOFRIDJCJI']/tbody/tr/td/span[@class='GOFRIDJCPI']/label"));
+        
+
+        answerPicked = this.chooseAnswer(listOfAnswersInput, listOfLabels, correctAnswer,typeOfAnswer);
+
+        return answerPicked;
+    }
+    
+    private boolean chooseAnswer(List<WebElement> listOfAnswersInput, List<WebElement> listOfLabels, String correctAnswer, boolean typeOfAnswer){
+    	String idOfAnswerInput = null;
+    	if (typeOfAnswer){
+    		for (WebElement e : listOfLabels){
+        		if(e.getText().equals(correctAnswer)){
+        			idOfAnswerInput = new String(e.getAttribute("for"));
+        			break;
+        		}
+        	}
+    	}else{
+    		for (WebElement e : listOfLabels){
+        		if( ! (e.getText().equals(correctAnswer)) ){
+        			idOfAnswerInput = new String(e.getAttribute("for"));
+        			break;
+        		}
+        	}
+    	}
+    	
+    	if(idOfAnswerInput != null){
+    		for (WebElement e : listOfAnswersInput){
+        		if (e.getAttribute("id").equals(idOfAnswerInput)){
+        			e.click();
+        			return true;
+        		}
+        	}
+    	}
+    	return false;
+    }
+
+    @After
+    public void closeBrowser(){
+        driver.quit();
+    }
+    
+    private String closeAlertAndGetItsText() {
+        try {
+          Alert alert = driver.switchTo().alert();
+          String alertText = alert.getText();
+          if (acceptNextAlert) {
+            alert.accept();
+          } else {
+            alert.dismiss();
+          }
+          return alertText;
+        } finally {
+          acceptNextAlert = true;
+        }
+      }
+}
