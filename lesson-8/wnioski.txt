@@ -1,0 +1,4 @@
+Wnioski:
+Alert z poprawną odpowiedzią nie jest wyświetlany zawsze. To znaczy że nawet jeśli damy poprawną odpowiedź to i tak może się nie wyświetlić aletr z poprawną odpowiedzią. Podejrzewam że alert dla odpowiedzi prawidłowej jest wyświetlany randomowo tzn. Jakiś generator liczb losije z przedziału 0,1. Jeśli 0 to aletr dla złej odpowiedzi , jeśli 1 to aletr dla poprawnej odpowiedzi. Są to jedynie moje przypuszczenia, które nie muszą być zgodne z prawdą.
+Pozdrawiam
+Marcin

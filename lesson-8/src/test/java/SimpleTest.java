@@ -43,13 +43,11 @@ public class SimpleTest {
         driver.get(URL);
         String title = driver.getTitle();
         assertEquals("Rule Financial Registration Form", title);
-
         /*
          * Your code needs to be here, sample below should help you a bit
          * driver.findElement(By.name("firstName")).clear();
          * driver.findElement(By.name("firstName")).sendKeys("Marek");
          */
-        
         this.fillRegistrationFields();
         driver.findElement(By.xpath("//*[@class='gwt-Button' and text()='Java']")).click();
         if (this.chooseTypeOfAnswerForQuestion(false)){
